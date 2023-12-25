@@ -1,0 +1,460 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat";
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  perspective: 200;
+  /* overflow-x: hidden; */
+  /* used to adjust the position of a 3D element in relation to the user in order to provide a 3D perspective */
+  /* The value of perspective determines the intensity of the 3D effect, with a lower value resulting in a more intense visual effect than a higher value */
+}
+
+/* #page4 ::-webkit-scrollbar {
+  display: none;
+
+} */
+
+#cursor {
+  height: 20px;
+  width: 20px;
+  background-color: #95c11e;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99;
+}
+
+#cursor-blur {
+  height: 200px;
+  width: 200px;
+  background-color: #c1db7b;
+  border-radius: 50%;
+  position: fixed;
+  filter: blur(50px);
+  z-index: 9;
+}
+
+#nav {
+  height: 145px;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 150px;
+  gap: 40px;
+  position: fixed;
+  z-index: 99;
+}
+
+#nav img {
+  height: 75px;
+}
+
+#nav h4 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: fixed;
+  z-index: -1;
+}
+
+#main {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.37);
+}
+
+#page1 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 10;
+}
+
+#page1 h1 {
+  font-size: 120px;
+  font-weight: 900;
+  position: relative;
+}
+
+#page1 h1::before {
+  content: "EAT.DRINK.PLAY";
+  position: absolute;
+  color: black;
+  top: -4px;
+  left: -4px;
+  -webkit-text-stroke: 2px #95c11e;
+  z-index: -1;
+}
+
+#page1 h2 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#page1 p {
+  font-size: 20px;
+  font-weight: 500;
+  width: 40%;
+}
+
+#page2 {
+  min-height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+
+#scroller {
+  /* background-color: red; */
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 10;
+}
+#scroller::-webkit-scrollbar {
+  display: none;
+}
+
+#scroller-in {
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: scroll;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* #scroller-in{
+  display: inline-block;
+  white-space: nowrap;
+} */
+
+#scroller h4 {
+  display: inline-block;
+  font-size: 140px;
+  font-weight: 900;
+  font-family: gilroy;
+  margin-right: 100px;
+  color: transparent;
+  transition: all linear 0.5;
+  -webkit-text-stroke: 2px #95c11e;
+}
+
+#scroller h4:hover {
+  color: #95c11e;
+}
+
+#about-us {
+  display: flex;
+  height: 40%;
+  width: 100%;
+  /* background-color: red; */
+  padding: 0 50px;
+  justify-content: space-around;
+}
+
+#about-us img {
+  height: 220px;
+  width: 220px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+#about-in {
+  text-align: center;
+  width: 50%;
+  padding: 30px;
+  /* background-color: red; */
+  position: relative;
+  z-index: 10;
+}
+
+#about-in h3 {
+  font-size: 54px;
+  font-weight: 800;
+}
+
+#about-in p {
+  font-size: 16px;
+  line-height: 17px;
+  margin: 10px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+#cards-container {
+  /* background-color: red; */
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  position: relative;
+  z-index: 10;
+}
+
+.card {
+  height: 80%;
+  width: 24%;
+  border-radius: 20px;
+  /* background-color: blue; */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+#card1 {
+  background-image: url(Assests/card1.avif);
+}
+
+#card2 {
+  background-image: url(Assests/card2.webp);
+}
+
+#card3 {
+  background-image: url(Assests/card3.avif);
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #95c11e;
+  padding-top: 160px;
+  /* padding: 30px 30px; */
+  padding: 30px;
+  opacity: 0;
+  transition: all ease 0.6s;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+.card:hover {
+  transform: rotate3d(-1, 1, 0, 20deg);
+  /* rotates the object - rotate3d(x-axis,y-axis,z-axis,how many degress?) */
+}
+
+.overlay h4 {
+  color: #000;
+  font-size: 30px;
+  text-transform: uppercase;
+  /* white-space: nowrap; */
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.overlay p {
+  color: #000;
+  font-size: 18px;
+  /* padding: 10px; */
+}
+
+#green-div{
+  height: 30vh;
+  display:flex;
+  background:linear-gradient(to left bottom, #119f3a, #ace022);
+  /* FOR DIAGONAL COLOR GRADIENT */
+  justify-content: space-between;
+align-items: center;
+}
+
+#green-div h4{
+font-size: 27px;
+line-height: 50px;
+color: #000;
+text-align: center;
+text-transform: uppercase;
+width: 45%;
+font-weight: 800;
+}
+
+#green-div img{
+  height: 100% ;
+  object-fit: cover;
+  width: 15%;
+}
+
+#page3{
+  height: 100vh;
+  width: 100%; 
+  background-color: #000;
+   display: flex;
+  align-items: center;
+  /* position: relative; */
+  justify-content: center; 
+  position: absolute;
+} 
+
+/* > It is a child selector, which selects DIRECT child elements of a specified parent element. */
+#page3 p{
+font-size: 30px;
+font-weight: 700;
+width: 60%;
+line-height: 40px;
+text-align: center;
+/* margin-left: 200px; */
+}
+
+#page3 img{
+  position: absolute;
+  height: 60px;
+}
+
+#page3 #colon1{
+  left: 12%;
+  top: 25%;
+}
+
+#page3 #colon2{
+  right: 12%;
+  bottom: 25%;
+}
+
+#page4 {
+  margin-top: 50%;
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  position: relative;
+  /* background-color: aqua; */
+  
+}
+
+
+
+.elem {
+  height: 70%;
+  width: 26%;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  margin-top: -5%;
+  
+}
+
+
+.elem h2 {
+  height: 100%;
+  width: 100%;
+  background-color: #95c11e;
+  display: flex;
+  color: #000;
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.5s;
+  font-size: 25x;
+  position: absolute;
+  z-index: 10;
+}
+.elem img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all ease 0.5s;
+  scale: 1.1;
+}
+.elem:hover h2 {
+  color: #fff;
+  background-color: transparent;
+}
+.elem:hover img {
+  scale: 1;
+}
+#page4 h1 {
+  font-size: 75px;
+  position: absolute;
+  top: -80%;
+  font-weight: 900;
+  font-family: gilroy;
+  color: #000;
+  -webkit-text-stroke: 2px #fff;
+  
+}
+
+
+
+#footer {
+  height: 40vh;
+  width: 100%;
+  background: linear-gradient(to left bottom, #119f3a 0%, #a3d421 80%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6.5vw;
+  padding: 0 100px;
+}
+#footer > img {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+}
+#f1 img {
+  height: 100px;
+}
+#f1,
+#f2,
+#f3,
+#f4 {
+  width: fit-content;
+  position: relative;
+  z-index: 99;
+  /* background-color: red; */
+}
+#f2 h3 {
+  font-size: 1.6vw;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+#f3 h3 {
+  font-size: 1.6vw;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+#f4 h4 {
+  font-size: 1vw;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
